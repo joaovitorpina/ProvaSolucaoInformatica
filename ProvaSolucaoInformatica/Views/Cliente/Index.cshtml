@@ -1,0 +1,58 @@
+﻿@model List<ProvaSolucaoInformatica.Databases.Default.Entities.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+    Layout = "_Layout";
+}
+<h2>Clientes</h2>
+
+<p>
+    @Html.ActionLink("Criar um novo cliente", "Criar")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Procurar por nome: @Html.TextBox("SearchString")
+        <input type="submit" value="Search"/>
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            Codigo
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            E-mail
+        </th>
+        <th>
+            Telefone
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", item) |
+                @Html.ActionLink("Deletar", "Deletar", item)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,43 @@
+﻿@model ProvaSolucaoInformatica.Databases.Default.Entities.Cliente
+
+@{
+    ViewBag.Title = "Criar Cliente";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html lang="br">
+<head>
+    <title>Criar cliente</title>
+</head>
+<body>
+<div>
+    @using (Html.BeginForm("Salvar", "Cliente", FormMethod.Post))
+    {
+        <div class="form-check alert-danger">
+            @Html.ValidationSummary()
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(m => m.Codigo)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Nome)
+            @Html.EditorFor(m => m.Nome)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.EditorFor(m => m.Email)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Telefone)
+            @Html.EditorFor(m => m.Telefone)
+            <small id="telefoneHelp" class="form-text text-muted">Digite o telefone no formato brasileiro, sem codigo de país.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    }
+</div>
+</body>
+</html>

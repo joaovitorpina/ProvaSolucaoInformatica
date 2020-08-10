@@ -1,0 +1,26 @@
+﻿@model LoggarViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "_Layout";
+}
+
+<h2>Login</h2>
+<br>
+@using (Html.BeginForm("Login", "Conta", FormMethod.Post))
+{
+    <div class="form-check alert-danger">
+        @Html.ValidationSummary()
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => Model.Login)
+        @Html.EditorFor(model => model.Login)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => Model.Senha)
+        @Html.PasswordFor(model => model.Senha)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+}
