@@ -1,5 +1,3 @@
-using System;
-
 namespace ProvaSolucaoInformatica.Models
 {
     public class ErrorViewModel
